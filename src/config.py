@@ -26,7 +26,7 @@ CLASSES = [
     "gajar_ka_halwa", "gavvalu", "ghevar", "gulab_jamun", "imarti",
     "jalebi", "kachori", "kadai_paneer", "kadhi_pakoda", "kajjikaya",
     "kakinada_khaja", "kalakand", "karela_bharta", "kofta", "kuzhi_paniyaram",
-    "lassi", "ledikeni", "litti_chokha", "lyangcha",
+    "lassi", "ledikeni", "litti_chokha", "lyangcha", "maach_jhol",
     "makki_di_roti_sarson_da_saag", "malapua", "misi_roti", "misti_doi",
     "modak", "mysore_pak", "naan", "navrattan_korma", "palak_paneer",
     "paneer_butter_masala", "phirni", "pithe", "poha", "poornalu",

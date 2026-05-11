@@ -61,6 +61,7 @@
   "ledikeni":                 {"category": "sweet",  "serving_g": 45,  "calories": 360, "protein_g": 5.5,  "carbs_g": 55.0, "fat_g": 14.0, "fiber_g": 0.0},
   "litti_chokha":             {"category": "combo",  "serving_g": 200, "calories": 270, "protein_g": 9.0,  "carbs_g": 38.0, "fat_g": 9.0,  "fiber_g": 5.0},
   "lyangcha":                 {"category": "sweet",  "serving_g": 50,  "calories": 350, "protein_g": 5.0,  "carbs_g": 50.0, "fat_g": 14.0, "fiber_g": 0.5},
+  "maach_jhol":               {"category": "non-veg","serving_g": 200, "calories": 145, "protein_g": 17.0, "carbs_g": 3.0,  "fat_g": 7.0,  "fiber_g": 0.5},
   "makki_di_roti_sarson_da_saag": {"category": "combo", "serving_g": 200, "calories": 200, "protein_g": 6.0, "carbs_g": 25.0, "fat_g": 8.5, "fiber_g": 5.5},
   "malapua":                  {"category": "sweet",  "serving_g": 50,  "calories": 380, "protein_g": 4.5,  "carbs_g": 50.0, "fat_g": 18.0, "fiber_g": 1.0},
   "misi_roti":                {"category": "bread",  "serving_g": 50,  "calories": 270, "protein_g": 9.0,  "carbs_g": 45.0, "fat_g": 6.0,  "fiber_g": 6.0},
