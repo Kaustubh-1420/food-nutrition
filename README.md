@@ -1,10 +1,10 @@
 ---
 title: Indian Food Nutrition
 emoji: 🍛
-colorFrom: orange
-colorTo: red
+colorFrom: red
+colorTo: yellow
 sdk: gradio
-sdk_version: 4.44.1
+sdk_version: 6.14.0
 app_file: app.py
 pinned: false
 license: mit
@@ -19,7 +19,7 @@ with a portion slider.
 ## How it works
 
 1. **Classify** — a fine-tuned EfficientNet-B2 (exported to ONNX) identifies
-   the dish from one of 79 Indian food classes.
+   the dish from one of 18 Indian food classes.
 2. **Look up** — predicted dish maps to a curated nutrition record sourced
    from the [Indian Food Composition Tables (IFCT 2017)](https://www.nin.res.in/)
    published by the National Institute of Nutrition.
@@ -53,7 +53,7 @@ models/
   most prominent dish only. Multi-label classification is planned for v2.
 - **Fixed standard servings** with a manual portion multiplier — no portion
   estimation from image scale.
-- **79 dishes** drawn from the Kaggle Indian Food Images dataset. Regional
+- **18 dishes** drawn from the Kaggle Indian Food Classification dataset. Regional
   variants outside this list aren't covered.
 - **Recipe variance** — home recipes differ; nutrition values are rough
   averages, not lab measurements. Treat results as estimates.
