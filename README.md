@@ -1,20 +1,11 @@
----
-title: Indian Food Nutrition
-emoji: 🍛
-colorFrom: red
-colorTo: yellow
-sdk: gradio
-sdk_version: 6.14.0
-app_file: app.py
-pinned: false
-license: mit
----
-
 # Indian Food → Nutrition
+
+[**Live demo →**](https://huggingface.co/spaces/Kaustubh1420/food-nutrition)
 
 Upload a photo of an Indian dish, get an estimated nutritional breakdown
 (calories, protein, carbs, fat, fiber) for a typical serving — adjustable
-with a portion slider.
+with a portion slider. A Llama 3.3 70B summary (via HF Inference API) adds
+a short practical take after each prediction.
 
 ## How it works
 
