@@ -5,6 +5,7 @@ scikit-learn==1.5.2
 pandas==2.2.3
 tqdm==4.66.5
 onnx==1.17.0
+onnxscript
 onnxsim==0.4.36
 onnxruntime==1.19.2
 pillow==10.4.0
