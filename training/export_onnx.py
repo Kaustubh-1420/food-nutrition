@@ -21,7 +21,7 @@ from onnxsim import simplify
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from src.config import IMG_SIZE, NUM_CLASSES  # noqa: E402
 
-OPSET = 17
+OPSET = 18
 
 
 def main() -> None:
