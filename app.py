@@ -13,6 +13,7 @@ from PIL import Image
 
 from src.config import EXAMPLES_DIR, MODEL_PATH, display_name
 from src.inference import FoodClassifier
+from src.llm_summary import summarize
 from src.nutrition import lookup
 
 MODEL_AVAILABLE = Path(MODEL_PATH).exists()
@@ -34,11 +35,11 @@ HEADER_NO_MODEL = (
 )
 
 
-def predict(image: Image.Image, portion: float) -> tuple[dict, list, str]:
+def predict(image: Image.Image, portion: float) -> tuple[dict, list, str, str]:
     if image is None:
-        return {}, [], "Upload a photo to get started."
+        return {}, [], "Upload a photo to get started.", ""
     if not MODEL_AVAILABLE:
-        return {}, [], "Model file missing — see the header above."
+        return {}, [], "Model file missing — see the header above.", ""
 
     clf = _get_classifier()
     preds = clf.predict(image)
@@ -48,7 +49,7 @@ def predict(image: Image.Image, portion: float) -> tuple[dict, list, str]:
     top_dish, top_conf = preds[0]
     nut = lookup(top_dish, portion=portion)
     if nut is None:
-        return label_dict, [], f"No nutrition data for `{top_dish}`."
+        return label_dict, [], f"No nutrition data for `{top_dish}`.", ""
 
     note_lines = [
         f"**{nut.display}** · category: {nut.category} · confidence: {top_conf * 100:.1f}%",
@@ -57,7 +58,10 @@ def predict(image: Image.Image, portion: float) -> tuple[dict, list, str]:
     if top_conf < 0.40:
         note_lines.append("Low confidence — model is uncertain. Check alternates above.")
 
-    return label_dict, nut.as_table_rows(), "\n\n".join(note_lines)
+    summary = summarize(nut, top_conf)
+    summary_md = f"### Quick take\n{summary}" if summary else ""
+
+    return label_dict, nut.as_table_rows(), "\n\n".join(note_lines), summary_md
 
 
 def build_ui() -> gr.Blocks:
@@ -82,10 +86,12 @@ def build_ui() -> gr.Blocks:
                     interactive=False, wrap=True,
                 )
                 note_out = gr.Markdown()
+                summary_out = gr.Markdown()
 
-        btn.click(predict, [image_in, portion], [labels_out, table_out, note_out])
-        image_in.change(predict, [image_in, portion], [labels_out, table_out, note_out])
-        portion.change(predict, [image_in, portion], [labels_out, table_out, note_out])
+        outputs = [labels_out, table_out, note_out, summary_out]
+        btn.click(predict, [image_in, portion], outputs)
+        image_in.change(predict, [image_in, portion], outputs)
+        portion.change(predict, [image_in, portion], outputs)
 
         if examples:
             gr.Examples(examples=examples, inputs=[image_in, portion])
